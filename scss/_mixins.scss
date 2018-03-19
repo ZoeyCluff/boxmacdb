@@ -1,0 +1,97 @@
+@mixin transition($what: all, $time: 0.3s) {
+	-webkit-transition: $what $time;
+	transition: $what $time;
+}
+
+@mixin transitiond($val) {
+	-webkit-transition-delay: $val;
+	transition-delay: $val;
+}
+
+@mixin opacity($op: 0.8) {
+	opacity: $op;
+}
+
+@mixin bgcover() {
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-ms-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+
+@mixin boxsizing($what: border-box) {
+  	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@mixin placeholder($color) {
+	&::-webkit-input-placeholder {
+	   color: $color;
+	}
+
+	&:-moz-placeholder { /* Firefox 18- */
+	   color: $color;
+	}
+
+	&::-moz-placeholder {  /* Firefox 19+ */
+	   color: $color;
+	}
+
+	&:-ms-input-placeholder {
+	   color: $color;
+	}
+}
+
+
+@mixin pantonbold() {
+    font-family: 'pantonbold', sans-serif;
+}
+
+@mixin pantonextrabold() {
+    font-family: 'Panton-ExtraBold', sans-serif;
+}
+
+@mixin pantonlight() {
+    font-family: 'pantonlight', sans-serif;
+}
+
+@mixin pantonregular() {
+    font-family: 'pantonregular', sans-serif;
+}
+
+
+.borderbox {
+	@include boxsizing();
+}
+
+.transition {
+	@include transition();
+}
+
+.bgcover {
+	@include bgcover();
+}
+
+.opacity {
+	@include opacity();
+}
+
+.pantonbold {
+    @include pantonbold();
+}
+
+.pantonextrabold {
+    @include pantonextrabold();
+}
+
+.pantonlight {
+    @include pantonlight();
+}
+
+.pantonregular {
+    @include pantonregular();
+}

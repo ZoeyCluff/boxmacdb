@@ -1,0 +1,689 @@
+<! DOCTYPE HTML>
+<html>
+<head>
+
+  <link rel='stylesheet' id='wpemfb-lightbox-css'  href='http://redcowentertainment.com/wp-content/plugins/wp-embed-facebook/lib/lightbox2/css/lightbox.css?ver=4.4.6' type='text/css' media='all' />
+  <link rel='stylesheet' id='google-fonts-css'  href='http://fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400%2C600%2C700&#038;ver=1.0' type='text/css' media='all' />
+  <link rel='stylesheet' id='red_cow-style-css'  href='http://redcowentertainment.com/wp-content/themes/redcow/style.css?ver=4.4.6' type='text/css' media='all' />
+  <link rel='stylesheet' id='videoplayer-css'  href='http://redcowentertainment.com/wp-content/themes/redcow/css/playerstyle.css?ver=1.0' type='text/css' media='all' />
+  <link rel='stylesheet' id='lightbox-css'  href='http://redcowentertainment.com/wp-content/themes/redcow/nivo/nivo-lightbox.css?ver=1.0' type='text/css' media='all' />
+  <link rel='stylesheet' id='lightbox-theme-css'  href='http://redcowentertainment.com/wp-content/themes/redcow/nivo/themes/default/default.css?ver=1.0' type='text/css' media='all' />
+  <link rel='stylesheet' id='custom-css'  href='http://redcowentertainment.com/wp-content/themes/redcow/css/custom.css?ver=1.0' type='text/css' media='all' />
+  <link rel='stylesheet' id='responsive-css'  href='http://redcowentertainment.com/wp-content/themes/redcow/css/responsive.css?ver=1.0' type='text/css' media='all' />
+  <link rel='stylesheet' id='local' href='./scss/styles.min.css' type='text/css' />
+  <script type='text/javascript' src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
+  <script type='text/javascript' src='http://redcowentertainment.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+  <script type='text/javascript' src='http://redcowentertainment.com/wp-content/plugins/wp-embed-facebook/lib/lightbox2/js/lightbox.min.js?ver=4.4.6'></script>
+  <script type='text/javascript' src='http://redcowentertainment.com/wp-content/plugins/wp-embed-facebook/lib/js/wpembedfb.min.js?ver=4.4.6'></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script type='text/javascript' src='http://redcowentertainment.com/wp-content/themes/redcow/js/mediaelement-and-player.min.js?ver=1.0'></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+var getQueryString = function ( field, url ) {
+    var href = url ? url : window.location.href;
+    var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
+    var string = reg.exec(href);
+    return string ? string[1] : null;
+};
+var id = getQueryString("id");
+
+
+  axios.get('http://api.boxmacdb.com:3000/findID/?id=' + id).then(function (res) {
+   var ProductName = JSON.stringify(res.data.macdb.ProductName);
+   var OriginCountry = JSON.stringify(res.data.macdb.Country);
+   var Comments = JSON.stringify(res.data.macdb.Comments);
+   var Rating = JSON.stringify(res.data.macdb.Rating);
+   var Price = JSON.stringify(res.data.macdb.Price);
+   var YURL = JSON.stringify(res.data.macdb.YURL);
+   var EpNo = JSON.stringify(res.data.macdb.EpNo);
+   var BoxSize = JSON.stringify(res.data.macdb.BoxSize);
+   var SauceType = JSON.stringify(res.data.macdb.SauceType);
+   var PriceRaw = JSON.stringify(res.data.macdb.PriceRaw);
+   var Exp = JSON.stringify(res.data.macdb.Exp);
+   var Mic = JSON.stringify(res.data.macdb.Mic);
+   var Veg = JSON.stringify(res.data.macdb.Veg);
+   var Org = JSON.stringify(res.data.macdb.Org);
+   var PastaType = JSON.stringify(res.data.macdb.PastaType);
+   var ADC = JSON.stringify(res.data.macdb.ADC);
+   var Pasta = JSON.stringify(res.data.macdb.Pasta);
+   var Type = JSON.stringify(res.data.macdb.Type);
+   var StoreBrand = JSON.stringify(res.data.macdb.StoreBrand);
+
+   var ProductName = JSON.parse(ProductName);
+   var OriginCountry = JSON.parse(OriginCountry);
+   var Comments = JSON.parse(Comments);
+   var Rating = JSON.parse(Rating);
+   var Price = JSON.parse(Price);
+   var YURL = JSON.parse(YURL);
+   var EpNo = JSON.parse(EpNo);
+   var BoxSize = JSON.parse(BoxSize);
+   var SauceType = JSON.parse(SauceType);
+   var PriceRaw = JSON.parse(PriceRaw);
+   var Exp = JSON.parse(Exp);
+   var Mic = JSON.parse(Mic);
+   var Veg = JSON.parse(Veg);
+   var Org = JSON.parse(Org);
+   var PastaType = JSON.parse(PastaType);
+   var ADC = JSON.parse(ADC);
+   var Pasta = JSON.parse(Pasta);
+   var Type = JSON.parse(Type);
+   var StoreBrand = JSON.parse(StoreBrand);
+
+   console.log(res.data.macdb);
+
+     document.getElementById('productName').innerHTML = ProductName;
+     document.getElementById('OriginCountry').innerHTML = OriginCountry;
+     document.getElementById('Comments').innerHTML = Comments;
+     document.getElementById('Rating').innerHTML = Rating;
+     document.getElementById('EpNo').innerHTML = EpNo;
+     document.getElementById('BoxSize').innerHTML = BoxSize;
+     document.getElementById('SauceType').innerHTML = SauceType;
+     document.getElementById('Exp').innerHTML = Exp;
+     document.getElementById('Org').innerHTML = Org;
+     document.getElementById('Mic').innerHTML = Mic;
+     document.getElementById('Veg').innerHTML = Veg;
+     document.getElementById('PastaType').innerHTML = PastaType;
+     document.getElementById('ADC').innerHTML = ADC;
+     document.getElementById('Pasta').innerHTML = Pasta;
+     document.getElementById('Type').innerHTML = Type;
+     document.getElementById('StoreBrand').innerHTML = StoreBrand;
+     document.getElementById('PriceRaw').innerHTML = PriceRaw;
+     document.getElementById('Price').innerHTML = Price;
+     document.getElementById('YURL').src = YURL;
+      });
+
+
+
+
+
+     // var result2 = JSON.stringify(res.data.macdb.Comments);
+     // var result3 = JSON.parse(result2);
+
+  </script>
+</head>
+
+<body>
+<header>
+
+    <!-- Top Header -->
+    <div class="header_top bgred" id="socialdonatetop">
+      <div class="wrapper cf">
+        <div class="social">
+                  <a href="http://twitter.com/redcowent" title="Twitter" class="social_icon fa fa-twitter" target="_blank"></a><a href="http://redcowentertainment.com/feed/rss/" title="RSS" class="social_icon fa fa-rss" target="_blank"></a><a href="http://facebook.com/RedCowEntertainment" title="Facebook" class="social_icon fa fa-facebook" target="_blank"></a><a href="http://instagram.com/redcowentertainment" title="Instagram" class="social_icon fa fa-instagram" target="_blank"></a><a href="http://reddit.com/r/redcowentertainment" title="Reddit" class="social_icon fa fa-reddit" target="_blank"></a><a href="https://www.youtube.com/channel/UCYvgalxiHFL3uHANR0BC4Xg" title="YouTube" class="social_icon fa fa-youtube" target="_blank"><span>Subscribe</span></a><a href="http://www.imdb.com/company/co0173211/?ref_=fn_al_co_1" title="IMDb" class="social_icon fa imdbsocial" target="_blank"><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/imdb.png"></a>                    </div><!--/.social-->
+        <div class="donate">
+
+
+                       <span>Donate:</span><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6FSCF3Z3L73YJ" title="Donate via PayPal" class="social_icon fa fa-paypal" target="_blank"><span>PayPal</span></a><a href="https://www.patreon.com/redcowentertainment" title="Donate via Patreon" class="social_icon icon_patreon" target="_blank"><span>Patreon</span></a>					</div><!--/.donate-->
+      </div><!--/.wrapper-->
+    </div><!--/.header_top-->
+
+    <!-- Menu Header -->
+    <div class="header_menu">
+      <div class="wrapper cf">
+        <nav>
+          <ul class="menu_links cf">
+
+          <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-355 current_page_itemactive"><a href="http://redcowentertainment.com/" id="menua_357" class="hovermenublock menulinx " rel="1">Home</a> </li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://redcowentertainment.com/blog/" id="menua_522" class="hovermenublock menulinx " rel="1">Blog</a> </li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_191" class="hovermenublock menulinx emptylink0" rel="1">Media<ul rel="1" class="submenu_1 cf" id="ul_1">	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_6407" class="hovermenublock menulinx emptylink1" rel="2">Videos by Category</a> <ul rel="2" class="submenu_2 cf" id="ul_2">		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_1653" class="hovermenublock menulinx emptylink2" rel="3">Animation</a> <ul rel="3" class="submenu_3 cf" id="ul_3">			<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/ej-comic/" id="menua_7203" class="hovermenublock menulinx " rel="4">EJ Comic</a> <div class="hovermenuinfo" id="hovermenu_7203"><div>Hilarious 60-seconds-or-less cartoons from EJ Massa.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/ejcomicsmenu.jpg" alt="Hilarious 60-seconds-or-less cartoons from EJ Massa."/></div></li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/red-cow-cartoons/" id="menua_7204" class="hovermenublock menulinx " rel="4">Red Cow Cartoons</a> <div class="hovermenuinfo" id="hovermenu_7204"><div>Satires skewering pop culture icons such as George Lucas.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/redcowcartoonsmenu.jpg" alt="Satires skewering pop culture icons such as George Lucas."/></div></li>
+  </ul>
+</li>
+  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_7871" class="hovermenublock menulinx emptylink2" rel="4">Behind the Scenes</a> <ul rel="3" class="submenu_3 cf" id="ul_4">			<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/behindscenes-boxmac/" id="menua_7208" class="hovermenublock menulinx " rel="5">BoxMac Extras</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/ten-pounds-behind-scenes/" id="menua_627" class="hovermenublock menulinx " rel="5">I Need to Lose 10 Lbs</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/abo-behind-scenes/" id="menua_7207" class="hovermenublock menulinx " rel="5">A-Bo the Humonkey</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/sexually-frank-behind-scenes/" id="menua_7212" class="hovermenublock menulinx " rel="5">Sexually Frank</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/vibes-behind-scenes/" id="menua_7213" class="hovermenublock menulinx " rel="5">Vibes</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/fun-up-there-behind-scenes/" id="menua_7209" class="hovermenublock menulinx " rel="5">Having Fun Up There</a> </li>
+</li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/other-behind-scenes/" id="menua_7211" class="hovermenublock menulinx " rel="5">Other</a> </li>
+  </ul>
+</li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/shorts/" id="menua_7215" class="hovermenublock menulinx " rel="5">Shorts</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/legacy-posterity/" id="menua_7214" class="hovermenublock menulinx " rel="5">Legacy/Posterity</a> </li>
+  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_7870" class="hovermenublock menulinx emptylink2" rel="5">Podcasts</a> <ul rel="3" class="submenu_3 cf" id="ul_5">			<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/dfs-video/" id="menua_7217" class="hovermenublock menulinx " rel="6">Discount Film School</a> <div class="hovermenuinfo" id="hovermenu_7217"><div>Videos from Red Cow's filmmaking podcast, "Discount Film School."</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/discounfilmmenu.jpg" alt="Videos from Red Cow&#039;s filmmaking podcast, &quot;Discount Film School.&quot;"/></div></li>
+</li>
+  </ul>
+</li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/trailers/" id="menua_7219" class="hovermenublock menulinx " rel="6">Trailers</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/video-blogs/" id="menua_7220" class="hovermenublock menulinx " rel="6">Video Blogs/Misc</a> </li>
+  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_7872" class="hovermenublock menulinx emptylink2" rel="6">Web Series</a> <ul rel="3" class="submenu_3 cf" id="ul_6">			<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/bagtrash/" id="menua_7222" class="hovermenublock menulinx " rel="7">BagTrash</a> <div class="hovermenuinfo" id="hovermenu_7222"><div>Frankie, Junt, and the crew search for the best trash bags on the planet.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/bagtrashmenu.jpg" alt="Frankie, Junt, and the crew search for the best trash bags on the planet."/></div></li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/boxmac/" id="menua_7223" class="hovermenublock menulinx " rel="7">BoxMac</a> <div class="hovermenuinfo" id="hovermenu_7223"><div>Junt, Frankie, and guests review every mac & cheese on Earth.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/boxmacmenu.jpg" alt="Junt, Frankie, and guests review every mac &amp; cheese on Earth."/></div></li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/boxmac-after-hours/" id="menua_7224" class="hovermenublock menulinx " rel="7">BoxMac After Hours</a> <div class="hovermenuinfo" id="hovermenu_7224"><div>Junt and Frankie read BoxMac fan mail and do shout outs in this video podcast.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/afterhoursmenu.jpg" alt="Junt and Frankie read BoxMac fan mail and do shout outs in this video podcast."/></div></li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/unboxing-mac/" id="menua_7320" class="hovermenublock menulinx " rel="7">UnBoxing Mac</a> <div class="hovermenuinfo" id="hovermenu_7320"><div>Junt and Frankie open the many boxes of mac and cheese sent to them from around the world.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/unboxingmenu.jpg" alt="Junt and Frankie open the many boxes of mac and cheese sent to them from around the world."/></div></li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/ej-comic/" id="menua_7225" class="hovermenublock menulinx " rel="7">EJ Comic</a> <div class="hovermenuinfo" id="hovermenu_7225"><div>Hilarious 60-seconds-or-less cartoons from EJ Massa.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/ejcomicsmenu.jpg" alt="Hilarious 60-seconds-or-less cartoons from EJ Massa."/></div></li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/ej-reviews/" id="menua_7226" class="hovermenublock menulinx " rel="7">EJ Reviews</a> <div class="hovermenuinfo" id="hovermenu_7226"><div>EJ is a psychotic alcoholic who reviews cameras, games, Game of Thrones, and more.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/ejreviewsmenu.jpg" alt="EJ is a psychotic alcoholic who reviews cameras, games, Game of Thrones, and more."/></div></li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/fleamarket-roundup/" id="menua_7989" class="hovermenublock menulinx " rel="7">Flea Market Roundup</a> <div class="hovermenuinfo" id="hovermenu_7989"><div>Frankie buys toys and chachkies from flea markets and comic book stores.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/fleamarketmenu.jpg" alt="Frankie buys toys and chachkies from flea markets and comic book stores."/></div></li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/glitter-bitches/" id="menua_8320" class="hovermenublock menulinx " rel="7">Glitter Bitches</a> <div class="hovermenuinfo" id="hovermenu_8320"><div>Nina is guided by Paula to be a more proper lady, in terms of fashion and makeup.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/glittermenu.jpg" alt="Nina is guided by Paula to be a more proper lady, in terms of fashion and makeup."/></div></li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/juntin-around-outdoors/" id="menua_7298" class="hovermenublock menulinx " rel="7">Juntin&#8217; Around Outdoors</a> <div class="hovermenuinfo" id="hovermenu_7298"><div>Junt battles a winter moth infestation, gardens tulip bulbs, and more!</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/wintermothsmenu.jpg" alt="Junt battles a winter moth infestation, gardens tulip bulbs, and more!"/></div></li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/red-cow-cartoons/" id="menua_7228" class="hovermenublock menulinx " rel="7">Red Cow Cartoons</a> <div class="hovermenuinfo" id="hovermenu_7228"><div>Satires skewering pop culture icons such as George Lucas.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/redcowcartoonsmenu.jpg" alt="Satires skewering pop culture icons such as George Lucas."/></div></li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/review-lounge/" id="menua_7229" class="hovermenublock menulinx " rel="7">Review Lounge</a> <div class="hovermenuinfo" id="hovermenu_7229"><div>EJ, Frankie, Junt, and other guests review big movie releases.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/reviewloungemenu.jpg" alt="EJ, Frankie, Junt, and other guests review big movie releases."/></div></li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/scavenger-junt/" id="menua_8178" class="hovermenublock menulinx " rel="7">Scavenger Junt</a> <div class="hovermenuinfo" id="hovermenu_8178"><div>Junt tells us stories about the junk and treasures on his property!</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/scavengerjuntmenu.jpg" alt="Junt tells us stories about the junk and treasures on his property!"/></div></li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/whats-in-junts-cart/" id="menua_7230" class="hovermenublock menulinx " rel="7">What&#8217;s in Junt&#8217;s Cart?</a> <div class="hovermenuinfo" id="hovermenu_7230"><div>Junt shops at liquidation sales, flea markets, and discount stores for the best deals.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/juntscartmenu.jpg" alt="Junt shops at liquidation sales, flea markets, and discount stores for the best deals."/></div></li>
+  </ul>
+</li>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories menu-item-has-children"><a href="http://redcowentertainment.com/video-categories/by-category/" id="menua_6408" class="hovermenublock menulinx " rel="7">Videos by Year</a> <ul rel="2" class="submenu_2 cf" id="ul_7">		<li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2017/" id="menua_8285" class="hovermenublock menulinx " rel="8">2017</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2016/" id="menua_7254" class="hovermenublock menulinx " rel="8">2016</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2015/" id="menua_7253" class="hovermenublock menulinx " rel="8">2015</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2014/" id="menua_7252" class="hovermenublock menulinx " rel="8">2014</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2013/" id="menua_7251" class="hovermenublock menulinx " rel="8">2013</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2012/" id="menua_7250" class="hovermenublock menulinx " rel="8">2012</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2011/" id="menua_7249" class="hovermenublock menulinx " rel="8">2011</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2010/" id="menua_7248" class="hovermenublock menulinx " rel="8">2010</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2009/" id="menua_7247" class="hovermenublock menulinx " rel="8">2009</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2008/" id="menua_7246" class="hovermenublock menulinx " rel="8">2008</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2007/" id="menua_7245" class="hovermenublock menulinx " rel="8">2007</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2006/" id="menua_7244" class="hovermenublock menulinx " rel="8">2006</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2005/" id="menua_7243" class="hovermenublock menulinx " rel="8">2005</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2004/" id="menua_7242" class="hovermenublock menulinx " rel="8">2004</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2003/" id="menua_7241" class="hovermenublock menulinx " rel="8">2003</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2002/" id="menua_7240" class="hovermenublock menulinx " rel="8">2002</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2001/" id="menua_7239" class="hovermenublock menulinx " rel="8">2001</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2000/" id="menua_7238" class="hovermenublock menulinx " rel="8">2000</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/1999/" id="menua_7237" class="hovermenublock menulinx " rel="8">1999</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/1998/" id="menua_7236" class="hovermenublock menulinx " rel="8">1998</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/1997/" id="menua_7235" class="hovermenublock menulinx " rel="8">1997</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/1995/" id="menua_7234" class="hovermenublock menulinx " rel="8">1995</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/1994/" id="menua_7233" class="hovermenublock menulinx " rel="8">1994</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/1992/" id="menua_7232" class="hovermenublock menulinx " rel="8">1992</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/1987/" id="menua_7231" class="hovermenublock menulinx " rel="8">1987</a> </li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_362" class="hovermenublock menulinx emptylink1" rel="8">Images</a> <ul rel="2" class="submenu_2 cf" id="ul_8">		<li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/red-cow-fan-art/" id="menua_8077" class="hovermenublock menulinx " rel="9">Fan Art</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/i-need-to-lose-ten-pounds-images/" id="menua_8117" class="hovermenublock menulinx " rel="9">I Need to Lose Ten Pounds</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/a-bo-the-humonkey-images/" id="menua_8116" class="hovermenublock menulinx " rel="9">A-Bo the Humonkey</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/sexually-frank-images/" id="menua_8114" class="hovermenublock menulinx " rel="9">Sexually Frank</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/vibes-images/" id="menua_8113" class="hovermenublock menulinx " rel="9">Vibes</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/having-fun-up-there-images/" id="menua_8112" class="hovermenublock menulinx " rel="9">Having Fun Up There</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/boxmac-images/" id="menua_8111" class="hovermenublock menulinx " rel="9">BoxMac</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/podcast-images/" id="menua_8115" class="hovermenublock menulinx " rel="9">Podcast</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/misc-images/" id="menua_8118" class="hovermenublock menulinx " rel="9">Miscellaneous</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/old-35mm-photos/" id="menua_8120" class="hovermenublock menulinx " rel="9">Old 35mm Photos</a> </li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="horizontal menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_5311" class="hovermenublock menulinx emptylink0" rel="9">Junt!<ul rel="1" class="submenu_1 cf" id="ul_9">	<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/boxmac/" id="menua_7255" class="hovermenublock menulinx " rel="10">BoxMac (Episodes &#038; Extra Content)</a> <div class="hovermenuinfo" id="hovermenu_7255"><div>Junt, Frankie, and guests review every mac & cheese on Earth.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/boxmacmenu.jpg" alt="Junt, Frankie, and guests review every mac &amp; cheese on Earth."/></div></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://redcowentertainment.com/music/boxmac/" id="menua_8057" class="hovermenublock menulinx " rel="10">BoxMac Songs</a> </li>
+<li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/boxmac-images/" id="menua_8056" class="hovermenublock menulinx " rel="10">BoxMac Images</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/whats-in-junts-cart/" id="menua_5314" class="hovermenublock menulinx " rel="10">What&#8217;s in Junt&#8217;s Cart?</a> <div class="hovermenuinfo" id="hovermenu_5314"><div>Junt shops at liquidation sales, flea markets, and discount stores for the best deals.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/juntscartmenu.jpg" alt="Junt shops at liquidation sales, flea markets, and discount stores for the best deals."/></div></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/juntin-around-outdoors/" id="menua_7299" class="hovermenublock menulinx " rel="10">Juntin&#8217; Around Outdoors</a> <div class="hovermenuinfo" id="hovermenu_7299"><div>Junt battles a winter moth infestation, gardens tulip bulbs, and more!</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/wintermothsmenu.jpg" alt="Junt battles a winter moth infestation, gardens tulip bulbs, and more!"/></div></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/scavenger-junt/" id="menua_8177" class="hovermenublock menulinx " rel="10">Scavenger Junt</a> <div class="hovermenuinfo" id="hovermenu_8177"><div>Junt tells us stories about the junk and treasures on his property!</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/scavengerjuntmenu.jpg" alt="Junt tells us stories about the junk and treasures on his property!"/></div></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/bagtrash/" id="menua_7256" class="hovermenublock menulinx " rel="10">BagTrash</a> <div class="hovermenuinfo" id="hovermenu_7256"><div>Frankie, Junt, and the crew search for the best trash bags on the planet.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/bagtrashmenu.jpg" alt="Frankie, Junt, and the crew search for the best trash bags on the planet."/></div></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://redcowentertainment.com/boxmac-database/" id="menua_8026" class="hovermenublock menulinx " rel="10">Mac Database</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://redcowentertainment.com/category/recipes/" id="menua_8054" class="hovermenublock menulinx " rel="10">Recipes</a> </li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" href="http://elmo.camera/" id="menua_7892" class="hovermenublock menulinx " rel="10">Elmo Cam</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-products"><a href="http://redcowentertainment.com/products/junt/" id="menua_7384" class="hovermenublock menulinx " rel="10">Junt Merchandise</a> </li>
+</ul>
+</li>
+<li class="horizontal menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_224" class="hovermenublock menulinx emptylink0" rel="10">Podcasts<ul rel="1" class="submenu_1 cf" id="ul_10">	<li class="menu-item menu-item-type-taxonomy menu-item-object-podcasts"><a href="http://redcowentertainment.com/podcasts/discount-film-school/" id="menua_7257" class="hovermenublock menulinx " rel="11">Discount Film School</a> <div class="hovermenuinfo" id="hovermenu_7257"><div>Frankie interviews directors, artists, and more about the current state of filmmaking.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/discounfilmmenu.jpg" alt="Frankie interviews directors, artists, and more about the current state of filmmaking."/></div></li>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-podcasts"><a href="http://redcowentertainment.com/podcasts/lone-holdout/" id="menua_7259" class="hovermenublock menulinx " rel="11">Lone Holdout</a> <div class="hovermenuinfo" id="hovermenu_7259"><div>Emily tries new shows/activities/fads weekly and talks about them.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/loneholdoutmenu.jpg" alt="Emily tries new shows/activities/fads weekly and talks about them."/></div></li>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-podcasts"><a href="http://redcowentertainment.com/podcasts/rage-quit/" id="menua_7261" class="hovermenublock menulinx " rel="11">Rage Quit</a> <div class="hovermenuinfo" id="hovermenu_7261"><div>Red Cow’s chaotic video game podcast, starring the cast of How Ah We?</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/ragequitmenu.jpg" alt="Red Cow’s chaotic video game podcast, starring the cast of How Ah We?"/></div></li>
+</ul>
+</li>
+<li class="horizontal menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_7869" class="hovermenublock menulinx emptylink0" rel="11">Features<ul rel="1" class="submenu_1 cf" id="ul_11">	<li class="menu-item menu-item-type-post_type menu-item-object-feature"><a href="http://redcowentertainment.com/feature/ineedtolosetenpounds/" id="menua_7266" class="hovermenublock menulinx " rel="12">I Need to Lose Ten Pounds</a> <div class="hovermenuinfo" id="hovermenu_7266"><div>Absurd musical comedy about an overweight high school student.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/tenpoundsmenu.jpg" alt="Absurd musical comedy about an overweight high school student."/></div></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-feature"><a href="http://redcowentertainment.com/feature/abothehumonkey/" id="menua_7264" class="hovermenublock menulinx " rel="12">A-Bo the Humonkey</a> <div class="hovermenuinfo" id="hovermenu_7264"><div>Comedy about a half man, half ape who pursues his civil rights.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/abomenu.jpg" alt="Comedy about a half man, half ape who pursues his civil rights."/></div></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-feature"><a href="http://redcowentertainment.com/feature/sexually-frank/" id="menua_7272" class="hovermenublock menulinx " rel="12">Sexually Frank</a> <div class="hovermenuinfo" id="hovermenu_7272"><div>Ensemble comedy about sex, relationships, art, and friendship.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/sexuallyfrankmenu.jpg" alt="Ensemble comedy about sex, relationships, art, and friendship."/></div></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-feature"><a href="http://redcowentertainment.com/feature/having-fun-up-there/" id="menua_7265" class="hovermenublock menulinx " rel="12">Having Fun Up There</a> <div class="hovermenuinfo" id="hovermenu_7265"><div>Dark comedy about a late 30s musician struggling to find purpose.</div><img src="http://redcowentertainment.com/wp-content/themes/redcow/images/havingfunuptheremenu.jpg" alt="Dark comedy about a late 30s musician struggling to find purpose."/></div></li>
+</li>
+</li>
+</ul>
+</li>
+<li class="horizontal menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children"><a href="http://redcowentertainment.com/category/press/" id="menua_367" class="hovermenublock menulinx " rel="12">Press<ul rel="1" class="submenu_1 cf" id="ul_12">	<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://redcowentertainment.com/category/press/i-need-to-lose-ten-pounds/" id="menua_370" class="hovermenublock menulinx " rel="13">I Need to Lose Ten Pounds</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://redcowentertainment.com/category/press/a-bo-the-humonkey/" id="menua_368" class="hovermenublock menulinx " rel="13">A-Bo the Humonkey</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://redcowentertainment.com/category/press/sexually-frank/" id="menua_371" class="hovermenublock menulinx " rel="13">Sexually Frank</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://redcowentertainment.com/category/press/having-fun-up-there/" id="menua_369" class="hovermenublock menulinx " rel="13">Having Fun Up There</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://redcowentertainment.com/category/press/boxmac-press/" id="menua_7296" class="hovermenublock menulinx " rel="13">BoxMac</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://redcowentertainment.com/category/press/other/" id="menua_7297" class="hovermenublock menulinx " rel="13">Other</a> </li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_6055" class="hovermenublock menulinx emptylink0" rel="13">Writings<ul rel="1" class="submenu_1 cf" id="ul_13">	<li class="menu-item menu-item-type-taxonomy menu-item-object-products"><a href="http://redcowentertainment.com/products/books/" id="menua_7385" class="hovermenublock menulinx " rel="14">Books</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://redcowentertainment.com/category/essays/" id="menua_7387" class="hovermenublock menulinx " rel="14">Essays</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category-writing"><a href="http://redcowentertainment.com/category-writing/scripts/" id="menua_7278" class="hovermenublock menulinx " rel="14">Scripts</a> </li>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_7891" class="hovermenublock menulinx emptylink0" rel="14">Music<ul rel="1" class="submenu_1 cf" id="ul_14">	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_7893" class="hovermenublock menulinx emptylink1" rel="15">Movie Soundtracks</a> <ul rel="2" class="submenu_2 cf" id="ul_15">		<li class="menu-item menu-item-type-post_type menu-item-object-music"><a href="http://redcowentertainment.com/music/i-need-to-lose-ten-pounds-soundtrack/" id="menua_7286" class="hovermenublock menulinx " rel="16">I Need to Lose Ten Pounds</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-music"><a href="http://redcowentertainment.com/music/a-bo-the-humonkey-soundtrack/" id="menua_7288" class="hovermenublock menulinx " rel="16">A-Bo the Humonkey</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-music"><a href="http://redcowentertainment.com/music/sexually-frank-soundtrack/" id="menua_7289" class="hovermenublock menulinx " rel="16">Sexually Frank</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-music"><a href="http://redcowentertainment.com/music/having-fun-up-there-soundtrack/" id="menua_7290" class="hovermenublock menulinx " rel="16">Having Fun Up There</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-music"><a href="http://redcowentertainment.com/music/having-fun-up-there-live/" id="menua_7287" class="hovermenublock menulinx " rel="16">Having Fun Up There Live Songs</a> </li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-music"><a href="http://redcowentertainment.com/music/boxmac/" id="menua_7284" class="hovermenublock menulinx " rel="16">BoxMac Songs</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-musics menu-item-has-children"><a href="http://redcowentertainment.com/musics/miscellaneous/" id="menua_7291" class="hovermenublock menulinx " rel="16">Other</a> <ul rel="2" class="submenu_2 cf" id="ul_16">		<li class="menu-item menu-item-type-post_type menu-item-object-music"><a href="http://redcowentertainment.com/music/old-jon-hunt-music/" id="menua_7285" class="hovermenublock menulinx " rel="17">Old Jon Hunt Music</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-music"><a href="http://redcowentertainment.com/music/miscellaneous/" id="menua_7292" class="hovermenublock menulinx " rel="17">Podcasts and More</a> </li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://redcowentertainment.com/contact/" id="menua_7293" class="hovermenublock menulinx " rel="17">Contact</a> </li>
+
+          </ul>
+
+          <div class="menu_responsive">
+            <a class="fa fa-home" title="Home" href="http://redcowentertainment.com"></a>
+            <span class="open fa fa-bars">Menu</span>
+            <ul class="opened closed">
+              <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-355 current_page_itemactive"><a href="http://redcowentertainment.com/" id="menua_357" class="hovermenublock menulinx " rel="1">Home</a> </li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://redcowentertainment.com/blog/" id="menua_522" class="hovermenublock menulinx " rel="1">Blog</a> </li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_191" class="hovermenublock menulinx emptylink0" rel="1">Media<ul rel="1" class="submenu" id="ul_1">	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_6407" class="hovermenublock menulinx emptylink1" rel="2">Videos by Category</a> <ul rel="2" class="submenu" id="ul_2">		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_1653" class="hovermenublock menulinx emptylink2" rel="3">Animation</a> <ul rel="3" class="submenu" id="ul_3">			<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/ej-comic/" id="menua_7203" class="hovermenublock menulinx " rel="4">EJ Comic</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/red-cow-cartoons/" id="menua_7204" class="hovermenublock menulinx " rel="4">Red Cow Cartoons</a> </li>
+  </ul>
+</li>
+  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_7871" class="hovermenublock menulinx emptylink2" rel="4">Behind the Scenes</a> <ul rel="3" class="submenu" id="ul_4">			<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/behindscenes-boxmac/" id="menua_7208" class="hovermenublock menulinx " rel="5">BoxMac Extras</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/ten-pounds-behind-scenes/" id="menua_627" class="hovermenublock menulinx " rel="5">I Need to Lose 10 Lbs</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/abo-behind-scenes/" id="menua_7207" class="hovermenublock menulinx " rel="5">A-Bo the Humonkey</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/sexually-frank-behind-scenes/" id="menua_7212" class="hovermenublock menulinx " rel="5">Sexually Frank</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/vibes-behind-scenes/" id="menua_7213" class="hovermenublock menulinx " rel="5">Vibes</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/fun-up-there-behind-scenes/" id="menua_7209" class="hovermenublock menulinx " rel="5">Having Fun Up There</a> </li>
+</li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/other-behind-scenes/" id="menua_7211" class="hovermenublock menulinx " rel="5">Other</a> </li>
+  </ul>
+</li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/shorts/" id="menua_7215" class="hovermenublock menulinx " rel="5">Shorts</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/legacy-posterity/" id="menua_7214" class="hovermenublock menulinx " rel="5">Legacy/Posterity</a> </li>
+  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_7870" class="hovermenublock menulinx emptylink2" rel="5">Podcasts</a> <ul rel="3" class="submenu" id="ul_5">			<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/dfs-video/" id="menua_7217" class="hovermenublock menulinx " rel="6">Discount Film School</a> </li>
+</li>
+  </ul>
+</li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/trailers/" id="menua_7219" class="hovermenublock menulinx " rel="6">Trailers</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/video-blogs/" id="menua_7220" class="hovermenublock menulinx " rel="6">Video Blogs/Misc</a> </li>
+  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_7872" class="hovermenublock menulinx emptylink2" rel="6">Web Series</a> <ul rel="3" class="submenu" id="ul_6">			<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/bagtrash/" id="menua_7222" class="hovermenublock menulinx " rel="7">BagTrash</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/boxmac/" id="menua_7223" class="hovermenublock menulinx " rel="7">BoxMac</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/boxmac-after-hours/" id="menua_7224" class="hovermenublock menulinx " rel="7">BoxMac After Hours</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/unboxing-mac/" id="menua_7320" class="hovermenublock menulinx " rel="7">UnBoxing Mac</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/ej-comic/" id="menua_7225" class="hovermenublock menulinx " rel="7">EJ Comic</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/ej-reviews/" id="menua_7226" class="hovermenublock menulinx " rel="7">EJ Reviews</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/fleamarket-roundup/" id="menua_7989" class="hovermenublock menulinx " rel="7">Flea Market Roundup</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/glitter-bitches/" id="menua_8320" class="hovermenublock menulinx " rel="7">Glitter Bitches</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/juntin-around-outdoors/" id="menua_7298" class="hovermenublock menulinx " rel="7">Juntin&#8217; Around Outdoors</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/red-cow-cartoons/" id="menua_7228" class="hovermenublock menulinx " rel="7">Red Cow Cartoons</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/review-lounge/" id="menua_7229" class="hovermenublock menulinx " rel="7">Review Lounge</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/scavenger-junt/" id="menua_8178" class="hovermenublock menulinx " rel="7">Scavenger Junt</a> </li>
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/whats-in-junts-cart/" id="menua_7230" class="hovermenublock menulinx " rel="7">What&#8217;s in Junt&#8217;s Cart?</a> </li>
+  </ul>
+</li>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories menu-item-has-children"><a href="http://redcowentertainment.com/video-categories/by-category/" id="menua_6408" class="hovermenublock menulinx " rel="7">Videos by Year</a> <ul rel="2" class="submenu" id="ul_7">		<li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2017/" id="menua_8285" class="hovermenublock menulinx " rel="8">2017</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2016/" id="menua_7254" class="hovermenublock menulinx " rel="8">2016</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2015/" id="menua_7253" class="hovermenublock menulinx " rel="8">2015</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2014/" id="menua_7252" class="hovermenublock menulinx " rel="8">2014</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2013/" id="menua_7251" class="hovermenublock menulinx " rel="8">2013</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2012/" id="menua_7250" class="hovermenublock menulinx " rel="8">2012</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2011/" id="menua_7249" class="hovermenublock menulinx " rel="8">2011</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2010/" id="menua_7248" class="hovermenublock menulinx " rel="8">2010</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2009/" id="menua_7247" class="hovermenublock menulinx " rel="8">2009</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2008/" id="menua_7246" class="hovermenublock menulinx " rel="8">2008</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2007/" id="menua_7245" class="hovermenublock menulinx " rel="8">2007</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2006/" id="menua_7244" class="hovermenublock menulinx " rel="8">2006</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2005/" id="menua_7243" class="hovermenublock menulinx " rel="8">2005</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2004/" id="menua_7242" class="hovermenublock menulinx " rel="8">2004</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2003/" id="menua_7241" class="hovermenublock menulinx " rel="8">2003</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2002/" id="menua_7240" class="hovermenublock menulinx " rel="8">2002</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2001/" id="menua_7239" class="hovermenublock menulinx " rel="8">2001</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/2000/" id="menua_7238" class="hovermenublock menulinx " rel="8">2000</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/1999/" id="menua_7237" class="hovermenublock menulinx " rel="8">1999</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/1998/" id="menua_7236" class="hovermenublock menulinx " rel="8">1998</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/1997/" id="menua_7235" class="hovermenublock menulinx " rel="8">1997</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/1995/" id="menua_7234" class="hovermenublock menulinx " rel="8">1995</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/1994/" id="menua_7233" class="hovermenublock menulinx " rel="8">1994</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/1992/" id="menua_7232" class="hovermenublock menulinx " rel="8">1992</a> </li>
+  <li class="menu-item menu-item-type-taxonomy menu-item-object-video-years"><a href="http://redcowentertainment.com/video-years/1987/" id="menua_7231" class="hovermenublock menulinx " rel="8">1987</a> </li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_362" class="hovermenublock menulinx emptylink1" rel="8">Images</a> <ul rel="2" class="submenu" id="ul_8">		<li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/red-cow-fan-art/" id="menua_8077" class="hovermenublock menulinx " rel="9">Fan Art</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/i-need-to-lose-ten-pounds-images/" id="menua_8117" class="hovermenublock menulinx " rel="9">I Need to Lose Ten Pounds</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/a-bo-the-humonkey-images/" id="menua_8116" class="hovermenublock menulinx " rel="9">A-Bo the Humonkey</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/sexually-frank-images/" id="menua_8114" class="hovermenublock menulinx " rel="9">Sexually Frank</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/vibes-images/" id="menua_8113" class="hovermenublock menulinx " rel="9">Vibes</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/having-fun-up-there-images/" id="menua_8112" class="hovermenublock menulinx " rel="9">Having Fun Up There</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/boxmac-images/" id="menua_8111" class="hovermenublock menulinx " rel="9">BoxMac</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/podcast-images/" id="menua_8115" class="hovermenublock menulinx " rel="9">Podcast</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/misc-images/" id="menua_8118" class="hovermenublock menulinx " rel="9">Miscellaneous</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/old-35mm-photos/" id="menua_8120" class="hovermenublock menulinx " rel="9">Old 35mm Photos</a> </li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="horizontal menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_5311" class="hovermenublock menulinx emptylink0" rel="9">Junt!<ul rel="1" class="submenu" id="ul_9">	<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/boxmac/" id="menua_7255" class="hovermenublock menulinx " rel="10">BoxMac (Episodes &#038; Extra Content)</a> </li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://redcowentertainment.com/music/boxmac/" id="menua_8057" class="hovermenublock menulinx " rel="10">BoxMac Songs</a> </li>
+<li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="http://redcowentertainment.com/boxmac-images/" id="menua_8056" class="hovermenublock menulinx " rel="10">BoxMac Images</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/whats-in-junts-cart/" id="menua_5314" class="hovermenublock menulinx " rel="10">What&#8217;s in Junt&#8217;s Cart?</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/juntin-around-outdoors/" id="menua_7299" class="hovermenublock menulinx " rel="10">Juntin&#8217; Around Outdoors</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/scavenger-junt/" id="menua_8177" class="hovermenublock menulinx " rel="10">Scavenger Junt</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-video-categories"><a href="http://redcowentertainment.com/video-categories/bagtrash/" id="menua_7256" class="hovermenublock menulinx " rel="10">BagTrash</a> </li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://redcowentertainment.com/boxmac-database/" id="menua_8026" class="hovermenublock menulinx " rel="10">Mac Database</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://redcowentertainment.com/category/recipes/" id="menua_8054" class="hovermenublock menulinx " rel="10">Recipes</a> </li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" href="http://elmo.camera/" id="menua_7892" class="hovermenublock menulinx " rel="10">Elmo Cam</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-products"><a href="http://redcowentertainment.com/products/junt/" id="menua_7384" class="hovermenublock menulinx " rel="10">Junt Merchandise</a> </li>
+</ul>
+</li>
+<li class="horizontal menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_224" class="hovermenublock menulinx emptylink0" rel="10">Podcasts<ul rel="1" class="submenu" id="ul_10">	<li class="menu-item menu-item-type-taxonomy menu-item-object-podcasts"><a href="http://redcowentertainment.com/podcasts/discount-film-school/" id="menua_7257" class="hovermenublock menulinx " rel="11">Discount Film School</a> </li>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-podcasts"><a href="http://redcowentertainment.com/podcasts/lone-holdout/" id="menua_7259" class="hovermenublock menulinx " rel="11">Lone Holdout</a> </li>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-podcasts"><a href="http://redcowentertainment.com/podcasts/rage-quit/" id="menua_7261" class="hovermenublock menulinx " rel="11">Rage Quit</a> </li>
+</ul>
+</li>
+<li class="horizontal menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_7869" class="hovermenublock menulinx emptylink0" rel="11">Features<ul rel="1" class="submenu" id="ul_11">	<li class="menu-item menu-item-type-post_type menu-item-object-feature"><a href="http://redcowentertainment.com/feature/ineedtolosetenpounds/" id="menua_7266" class="hovermenublock menulinx " rel="12">I Need to Lose Ten Pounds</a> </li>
+<li class="menu-item menu-item-type-post_type menu-item-object-feature"><a href="http://redcowentertainment.com/feature/abothehumonkey/" id="menua_7264" class="hovermenublock menulinx " rel="12">A-Bo the Humonkey</a> </li>
+<li class="menu-item menu-item-type-post_type menu-item-object-feature"><a href="http://redcowentertainment.com/feature/sexually-frank/" id="menua_7272" class="hovermenublock menulinx " rel="12">Sexually Frank</a> </li>
+<li class="menu-item menu-item-type-post_type menu-item-object-feature"><a href="http://redcowentertainment.com/feature/having-fun-up-there/" id="menua_7265" class="hovermenublock menulinx " rel="12">Having Fun Up There</a> </li>
+</li>
+</li>
+</ul>
+</li>
+<li class="horizontal menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children"><a href="http://redcowentertainment.com/category/press/" id="menua_367" class="hovermenublock menulinx " rel="12">Press<ul rel="1" class="submenu" id="ul_12">	<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://redcowentertainment.com/category/press/i-need-to-lose-ten-pounds/" id="menua_370" class="hovermenublock menulinx " rel="13">I Need to Lose Ten Pounds</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://redcowentertainment.com/category/press/a-bo-the-humonkey/" id="menua_368" class="hovermenublock menulinx " rel="13">A-Bo the Humonkey</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://redcowentertainment.com/category/press/sexually-frank/" id="menua_371" class="hovermenublock menulinx " rel="13">Sexually Frank</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://redcowentertainment.com/category/press/having-fun-up-there/" id="menua_369" class="hovermenublock menulinx " rel="13">Having Fun Up There</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://redcowentertainment.com/category/press/boxmac-press/" id="menua_7296" class="hovermenublock menulinx " rel="13">BoxMac</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://redcowentertainment.com/category/press/other/" id="menua_7297" class="hovermenublock menulinx " rel="13">Other</a> </li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_6055" class="hovermenublock menulinx emptylink0" rel="13">Writings<ul rel="1" class="submenu" id="ul_13">	<li class="menu-item menu-item-type-taxonomy menu-item-object-products"><a href="http://redcowentertainment.com/products/books/" id="menua_7385" class="hovermenublock menulinx " rel="14">Books</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://redcowentertainment.com/category/essays/" id="menua_7387" class="hovermenublock menulinx " rel="14">Essays</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category-writing"><a href="http://redcowentertainment.com/category-writing/scripts/" id="menua_7278" class="hovermenublock menulinx " rel="14">Scripts</a> </li>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_7891" class="hovermenublock menulinx emptylink0" rel="14">Music<ul rel="1" class="submenu" id="ul_14">	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a id="menua_7893" class="hovermenublock menulinx emptylink1" rel="15">Movie Soundtracks</a> <ul rel="2" class="submenu" id="ul_15">		<li class="menu-item menu-item-type-post_type menu-item-object-music"><a href="http://redcowentertainment.com/music/i-need-to-lose-ten-pounds-soundtrack/" id="menua_7286" class="hovermenublock menulinx " rel="16">I Need to Lose Ten Pounds</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-music"><a href="http://redcowentertainment.com/music/a-bo-the-humonkey-soundtrack/" id="menua_7288" class="hovermenublock menulinx " rel="16">A-Bo the Humonkey</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-music"><a href="http://redcowentertainment.com/music/sexually-frank-soundtrack/" id="menua_7289" class="hovermenublock menulinx " rel="16">Sexually Frank</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-music"><a href="http://redcowentertainment.com/music/having-fun-up-there-soundtrack/" id="menua_7290" class="hovermenublock menulinx " rel="16">Having Fun Up There</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-music"><a href="http://redcowentertainment.com/music/having-fun-up-there-live/" id="menua_7287" class="hovermenublock menulinx " rel="16">Having Fun Up There Live Songs</a> </li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-music"><a href="http://redcowentertainment.com/music/boxmac/" id="menua_7284" class="hovermenublock menulinx " rel="16">BoxMac Songs</a> </li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-musics menu-item-has-children"><a href="http://redcowentertainment.com/musics/miscellaneous/" id="menua_7291" class="hovermenublock menulinx " rel="16">Other</a> <ul rel="2" class="submenu" id="ul_16">		<li class="menu-item menu-item-type-post_type menu-item-object-music"><a href="http://redcowentertainment.com/music/old-jon-hunt-music/" id="menua_7285" class="hovermenublock menulinx " rel="17">Old Jon Hunt Music</a> </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-music"><a href="http://redcowentertainment.com/music/miscellaneous/" id="menua_7292" class="hovermenublock menulinx " rel="17">Podcasts and More</a> </li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://redcowentertainment.com/contact/" id="menua_7293" class="hovermenublock menulinx " rel="17">Contact</a> </li>
+                              <li style="text-align:center;">
+                              <div class="donsoc">
+                  <a href="http://twitter.com/redcowent" title="Twitter" class="social_icon fa fa-twitter" target="_blank"></a><a href="http://redcowentertainment.com/feed/rss/" title="RSS" class="social_icon fa fa-rss" target="_blank"></a><a href="http://facebook.com/RedCowEntertainment" title="Facebook" class="social_icon fa fa-facebook" target="_blank"></a><a href="http://instagram.com/redcowentertainment" title="Instagram" class="social_icon fa fa-instagram" target="_blank"></a><a href="http://reddit.com/r/redcowentertainment" title="Reddit" class="social_icon fa fa-reddit" target="_blank"></a><a href="http://www.imdb.com/company/co0173211/?ref_=fn_al_co_1" title="IMDb" class="social_icon fa imdbsocial" target="_blank"><img src="/wp-content/themes/redcow/images/imdb.png"></a><a href="https://www.youtube.com/channel/UCYvgalxiHFL3uHANR0BC4Xg" title="YouTube" class="social_icon fa fa-youtube" target="_blank"><span>Subscribe</span></a></div>
+                  </li><!--/.social-->
+        <li class="donatesocial">
+                        <div class="donsoc" id="donatemob">
+                       <span id="donatespan">Donate:</span><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6FSCF3Z3L73YJ" title="Donate via PayPal" class="social_icon fa fa-paypal" target="_blank"><span>PayPal</span></a><a href="https://www.patreon.com/redcowentertainment" title="Donate via Patreon" class="social_icon icon_patreon" target="_blank"><span>Patreon</span></a></div>
+          </li>
+                        </ul>
+          </div>
+
+          <ul class="menu_icons">
+            <li>
+              <a href="http://redcowentertainment.com/store" class="fa fa-shopping-cart"></a>
+
+              <div class="cart_open">
+                <ul class="cf">
+                    <li class="cat-item cat-item-41"><a href="http://redcowentertainment.com/products/books/" >Books</a>
+</li>
+<li class="cat-item cat-item-43"><a href="http://redcowentertainment.com/products/clothing-swag/" >Clothing/Swag</a>
+</li>
+<li class="cat-item cat-item-50"><a href="http://redcowentertainment.com/products/posters/" >Posters</a>
+</li>
+<li class="cat-item cat-item-54"><a href="http://redcowentertainment.com/products/movies/" >Movies</a>
+</li>
+<li class="cat-item cat-item-258"><a href="http://redcowentertainment.com/products/junt/" >Junt</a>
+</li>
+                </ul>
+                <a href="http://redcowentertainment.com/store" class="cart_button">view shop</a>
+
+              </div><!--/.cart_open-->
+            </li>
+
+          </ul>
+        </nav>
+      </div><!--/.wrapper-->
+    </div><!--/.header_menu-->
+
+
+    <div class="header_center">
+      <a href="https://boxmacdb.com" title="Red Cow Entertainment - HomePage" class="header_logo">
+        <img src="http://redcowentertainment.com/wp-content/uploads/2015/07/header_logo.png" alt="Red Cow Entertainment" title="Red Cow Entertainment" /><span>Indie Films, Podcasts, Cartoons, Web Series, and BoxMac</span>				</a>
+
+
+          </header>
+
+          <div class="clear"></div>
+
+          <br />
+          <div class="featured_video">
+          		<iframe id="YURL" width="50%" align="middle" height="485" src="" frameborder="0" allowfullscreen></iframe>
+          	</div>
+            <br />
+
+          <div class="info">
+            <div class="info">
+            	<table class="prodtable">
+            	<tbody>
+            	<tr>
+            		<td  class="headercell">
+            			Product Name:
+            		</td>
+            		<td>
+            		</td>
+            		<td id="productName" class="infocell">
+
+            		</td>
+            	</tr>
+            	<tr>
+            	</tr>
+            	<tr>
+            		<td class="headercell">
+            			Origin Country:
+            		</td>
+            		<td>
+            		</td>
+            		<td id="OriginCountry" class="infocell">
+
+            		</td>
+            	</tr>
+            	<tr>
+            		<td class="headercell">
+            			Brand:
+            		</td>
+            		<td>
+            		</td>
+            		<td id="StoreBrand" class="infocell">
+
+            		</td>
+            	</tr>
+            	<tr>
+            		<td class="headercell">
+            			Type (Brand / Generic):
+            		</td>
+            		<td>
+            		</td>
+            		<td id="Type" class="infocell">
+
+            		</td>
+            	</tr>
+            	<tr>
+            		<td class="headercell">
+            			Pasta:
+            		</td>
+            		<td>
+            		</td>
+            		<td id="Pasta" class="infocell">
+
+            		</td>
+            	</tr>
+            	<tr>
+            		<td class="headercell">
+            			Additions:
+            		</td>
+            		<td>
+            		</td>
+            		<td  id="ADC" class="infocell">
+
+            		</td>
+            	</tr>
+            	<tr>
+            		<td class="headercell">
+            			Pasta Type:
+            		</td>
+            		<td>
+            		</td>
+            		<td id="PastaType" class="infocell">
+
+            		</td>
+            	</tr>
+            	<tr>
+            		<td class="headercell">
+            			Organic?:
+            		</td>
+            		<td>
+            		</td>
+            		<td  id="Org" class="infocell">
+
+            		</td>
+            	</tr>
+            	<tr>
+            		<td class="headercell">
+            			Vegetarian?:
+            		</td>
+            		<td>
+            		</td>
+            		<td id="Veg" class="infocell">
+
+            		</td>
+            	</tr>
+            	<tr>
+            		<td class="headercell">
+            			Expired?:
+            		</td>
+            		<td>
+            		</td>
+            		<td id="Exp" class="infocell">
+
+            		</td>
+            	</tr>
+            	<tr>
+            		<td class="headercell">
+            			Microwave?:
+            		</td>
+            		<td>
+            		</td>
+            		<td id="Mic" class="infocell">
+
+            		</td>
+            	</tr>
+            	<tr>
+
+            	</tr>
+            	<tr>
+            		<td class="headercell">
+            			Price:
+            		</td>
+            		<td>
+            		</td>
+            		<td id="PriceRaw" class="infocell">
+
+            		</td>
+            	</tr>
+            	<tr>
+            		<td class="headercell">
+            			Sauce Type:
+            		</td>
+            		<td>
+            		</td>
+            		<td id="SauceType" class="infocell">
+
+            		</td>
+            	</tr>
+            	<tr>
+            		<td class="headercell">
+            			Box Size:
+            		</td>
+            		<td>
+            		</td>
+            		<td id="BoxSize" class="infocell">
+
+            		</td>
+            	</tr>
+            	<tr>
+            		<td class="headercell">
+            			Episode Number:
+            		</td>
+            		<td>
+            		</td>
+            		<td id="EpNo" class="infocell">
+
+            		</td>
+            	</tr>
+            	<tr>
+            		<td class="headercell">
+            			Price:
+            		</td>
+            		<td>
+            		</td>
+            		<td id="Price" class="infocell">
+
+            		</td>
+            	</tr>
+            	<tr>
+            		<td class="headercell">
+            			Rating:
+            		</td>
+            		<td>
+            		</td>
+            		<td id="Rating" class="infocell">
+
+            		</td>
+            	</tr>
+            	<tr>
+            		<td class="headercell">
+            			Comments:
+            		</td>
+            		<td>
+            		</td>
+            		<td id="Comments" class="infocell">
+
+            		</td>
+            	</tr>
+            	</tbody>
+            	</table>
+            </div>
+<br />
+
+
+
+<p class="legend">Legend:
+  <br>
+  W: Water
+  <br>
+  M: Milk
+  <br>
+  B: Butter
+  <br>
+  ND: Non Dairy
+  <br>
+  Rating out of five stars
+</p>
+<footer>
+    <div class="footer_logo">
+		<img src="http://redcowentertainment.com/wp-content/themes/redcow/images/footer_logo.png" alt="Red Cow Entertainment" title="Red Cow Entertainment" />
+    </div><!--/.footer_logo-->
+    <span class="copy">&copy; 2017 <a href="http://redcowentertainment.com" title="Red Cow Entertainment">Red Cow Entertainment</a>. All Rights Reserved.</span>
+    <ul id="menu-primary-menu" class=""><li id="menu-item-389" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-389"><a href="http://redcowentertainment.com/staging">Home</a></li>
+<li id="menu-item-394" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-394"><a href="http://redcowentertainment.com/blog/">Blog</a></li>
+<li id="menu-item-7950" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7950"><a href="http://redcowentertainment.com/video-categories/by-category/">Videos</a></li>
+<li id="menu-item-6029" class="menu-item menu-item-type-post_type_archive menu-item-object-product menu-item-6029"><a href="http://redcowentertainment.com/store/">Store</a></li>
+</ul></footer>
+          </body>
+
+
+</html>

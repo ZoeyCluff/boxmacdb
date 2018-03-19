@@ -1,0 +1,112 @@
+@import "reset";
+@import "colors";
+@import "mixins";
+@import "fonts";
+
+header {
+  padding-bottom: 50px;
+}
+
+table {
+  font-family: 'pantonbold';
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table tr {
+  text-align: center;
+}
+
+td a{
+  width:100%;
+  display:block;
+}
+
+.info {
+  text-align: center;
+}
+
+.featured_video {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+
+.prodtable {
+		border-collapse: collapse;
+		width:100%;
+		font-family: 'pantonbold', sans-serif;
+	}
+
+	.prodtable td {
+		border: 1px solid #cccccc;
+		padding:0.5em;
+	}
+
+	.headercell {
+		text-align:right;
+		background-color:#EF2F38;
+		color:#FFFFFF;
+
+	}
+
+	.infocell {
+
+	}
+
+  .flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .Grid {
+  display: flex;
+  margin-left: 20%;
+
+}
+
+.Grid p {
+  font-family: 'pantonbold', sans-serif;
+  font-size: 18px;
+}
+.Grid-cell {
+  flex: 1;
+  display: inline-block;
+  padding-bottom: 25px;
+
+}
+
+.flex > div
+{
+   flex: 1 0 50%;
+}
+
+.previousPage {
+    padding-top: 100px;
+}
+.button p {
+  text-align: center;
+  font-family: 'pantonlight';
+  font-size: 24px;
+
+  padding-bottom: 25px;
+}
+
+footer {
+  padding-top: 250px;
+}
+
+   .hidden {
+        display: none;
+   }
+
+   #hidden {
+        display: none;
+   }
+   .visible {
+        display: block;
+   }
